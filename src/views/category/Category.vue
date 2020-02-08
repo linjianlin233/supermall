@@ -1,0 +1,118 @@
+<template>
+  <ul class="content">
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+    <li>fsaggg</li>
+  </ul>
+</template>
+
+<script>
+  export default {
+    name: "Category"
+  }
+</script>
+
+<style scoped>
+.content{
+  height: 150px;
+  background-color: red;
+  overflow-y: scroll;
+}
+</style>
