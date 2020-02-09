@@ -65,7 +65,15 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
      this.getHomeGoods('pop')
      this.getHomeGoods('new')
      this.getHomeGoods('sell')
+
     },
+    mounted(){
+      const refresh = this.debounce(this.$refs.scroll.refresh,5000)
+      this.$bus.$on('itemImageLoad', () => {
+        refresh()
+    })
+    },
+
     computed:{
       showGoods(){
         return this.goods[this.currentTyoe].list
@@ -93,7 +101,15 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
       loadMore(){
         // console.log("dsdsf");
         this.getHomeGoods(this.currentTyoe)
-        
+      },
+      debounce(func,delay) {
+        let timer = null;
+        return function(...args){
+          if(timer) clearTimeout(timer);
+          timer = setTimeout(() => {
+            func.apply(this,args)
+          },delay)
+        }
       },
 
       // 网络请求的一些方法
