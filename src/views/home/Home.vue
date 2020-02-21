@@ -3,13 +3,17 @@
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
+     <tab-control :titles="['流行','新款','精选']" class="tab-control"
+       @tabClick="tabClick" 
+       v-show="isTabFixed" ref="tabControl1"/>
     <scroll class="content" ref="scroll" :probe-type="3" 
       @scroll="contentscroll" :pull-up-load="true" 
       @pullingUp="loadMore">
-      <home-swiper :banners="banners"/>
+      <home-swiper :banners="banners" @swiperImageLoad="swiperImageLoad"/>
       <recommend-view :recommends="recommends"/>
       <feature-view />
-      <tab-control :titles="['流行','新款','精选']" class="tab-control" @tabClick="tabClick" />
+      <tab-control :titles="['流行','新款','精选']"
+       @tabClick="tabClick" ref="tabControl2" />
       <good-list :goods="showGoods" />
     </scroll>
 
@@ -56,7 +60,10 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
           'sell':{page:0,list:[]},
         },
         currentTyoe:'pop',
-        isShowBackTop:false
+        isShowBackTop:false,
+        tabOffsetTop:0,
+        isTabFixed:false,
+        saveY:0,
       }
     },
     created(){
@@ -72,6 +79,12 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
       this.$bus.$on('itemImageLoad', () => {
         refresh()
     })
+    },deactivated() {
+      this.saveY = this.$refs.scroll.scroll.scroll.y 
+    },
+    activaaated(){
+      this.$refs.scroll.scrollTo(0, this.saveY, 0)
+      this.$refs.scroll.refresh()
     },
 
     computed:{
@@ -89,6 +102,8 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
           case 2: this.currentTyoe = 'sell'
           break
         }
+        this.$refs.tabControl1.currentIndex = index;
+        this.$refs.tabControl2.currentIndex = index;
       },
       backclick() {
         this.$refs.scroll.scrollTo(0, 0)
@@ -96,7 +111,7 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
       },
       contentscroll(position){
         this.isShowBackTop = (-position.y)>1000 
-        
+        this.isTabFixed = (-position.y) > this.tabOffsetTop
       },
       loadMore(){
         // console.log("dsdsf");
@@ -110,6 +125,9 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
             func.apply(this,args)
           },delay)
         }
+      },
+      swiperImageLoad(){
+        this.tabOffsetTop=this.$refs.tabControl2.$el.offsetTop;
       },
 
       // 网络请求的一些方法
@@ -134,7 +152,7 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
 
 <style scoped>
   #home{
-    padding-top: 44px;
+    /* padding-top: 44px; */
     height: 100vh;
     position: relative;
   }
@@ -142,15 +160,19 @@ import {getHomeMultidata,getHomeGoods} from 'network/home';
     background-color: var(--color-tint);
     color: white;
 
-    position: fixed;
+    /* position: fixed;
     left: 0;
     right: 0;
     top: 0;
-    z-index: 9;
+    z-index: 9; */
   }
-  .tab-control{
+  /* .tab-control{
     position: sticky;
     top:44px;
+    z-index: 9;
+  } */
+  .tab-control{
+    position: relative;
     z-index: 9;
   }
  .content{
